@@ -1,15 +1,18 @@
 <?php
-$accountname  = "lojadosuporte";//$_POST['accountname'];1000003
-$brandid = "2000000";
-$CategoryId = "16";
-$DepartmentId = "001";
-$Description = "001";
-$DescriptionShort = "001";
-$LinkId = "002";
-$Name = "produto novo";
-$RefId = "002";
-$Title = "teste Title";
-$Id = "";
+
+$var = json_decode(file_get_contents('php://input'), true);
+
+$accountname  = $_GET['an'];
+$brandid = $var[0]['brandid'];
+$CategoryId = $var[0]['categoryid'];
+$DepartmentId = $var[0]['departmentid'];
+$Description = $var[0]['description'];
+$DescriptionShort = $var[0]['descriptionshort'];
+$LinkId = $var[0]['linkid'];
+$Name = $var[0]['name'];
+$RefId = $var[0]['refid'];
+$Title = $var[0]['title'];
+$Id = $var[0]['productid'];
 
 if ($Id != ""){ $Id = "<vtex:Id>$Id</vtex:Id>"; }
 
@@ -41,7 +44,7 @@ $xml_post_string = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/
            $headers = array(
                         "Content-type: text/xml;charset=\"utf-8\"",
                         "SOAPAction: http://tempuri.org/IService/ProductInsertUpdate",
-                        "Authorization: Basic YWRtaW46dGFwODgwNQ==",
+                        "Authorization: Basic ".base64_encode($var[1]['user'].":".$var[1]['password']),
                         "Content-length: ".strlen($xml_post_string),
                     );
 
@@ -66,4 +69,5 @@ $xml_post_string = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/
 
             $parser = simplexml_load_string($response2);
             echo $response;
+
 ?>
