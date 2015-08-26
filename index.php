@@ -7,6 +7,9 @@
  * To change this template use File | Settings | File Templates.
  */
 
-echo "inicio";
+echo "inicio</br>";
+
+
+echo "<a href=/couponArchive/itenstoarchive.html>[ CouponArchive ]</a>";
 
 ?>
