@@ -2,7 +2,9 @@
 
 <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post" action="getcoupons.php">
     <fieldset>
-        <textarea rows="4" cols="50" name="coupons" id="coupons"></textarea>
+        AccountName: <input id="accountname" name="accountname" type="text" value=""/></br></br>
+        Coupons <font color=red>not</font> to archive:</br>
+        <textarea rows="4" cols="50" name="coupons" id="coupons"></textarea></br></br>
         <input id="send" type="submit" value="Arquivar"/>
     </fieldset>
 </form>

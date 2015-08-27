@@ -1,6 +1,6 @@
 <?php
 
-$accountName = "lojadosuporte";
+$accountName = $_POST['accountname'];
 
 function getCoupons($accountname){
 
@@ -73,7 +73,7 @@ foreach ($coupons as $value) {
         echo $i ." - <font color=green>cupon nao arquivado: " . $value->couponCode . "</font></br>";
         $i++;$n++;
     }else{
-        //sendPostData($accountName, $value->id);
+        sendPostData($accountName, $value->id);
         echo $i ." - <font color=red>cupon arquivado: " . $value->couponCode . "</font></br>";
         $i++;$a++;
     }
