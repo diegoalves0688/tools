@@ -4,11 +4,11 @@ $accountName = $_POST['accountname'];
 
 function getCoupons($accountname){
 
-    $applicationID = "vtexappkey-appvtex";
-    $applicationKey = "QOLGVNXYIALKLOFANGJQOYTJEPQQGDSNDQCHQKIUXUWQYSWCSIHXYCJRUCCGXGRFIYHULYJCYOTTBCKMSNYYVUOAGLMNIBXRCRIAKCRUYFZJJPPRRPOKITJOJGNALVUW";
+    $applicationID = $_POST['key'];
+    $applicationKey = $_POST['token'];
 
     // Set the request URL
-    $url = 'http://'. $accountname .'.vtexcommercestable.com.br/api/rnb/pvt/coupon';
+    $url = 'http://'. $accountname .'.vtexcommercebeta.com.br/api/rnb/pvt/coupon';
 
     // Set the HTTP request authentication headers
     $headers = array(
@@ -39,10 +39,10 @@ function sendPostData($accountName, $couponId){
     );
     $str_data = json_encode($data);
 
-    $url = 'http://'. $accountName .'.vtexcommercestable.com.br/api/rnb/pvt/archive/coupon/'. $couponId .'/';
+    $url = 'http://'. $accountName .'.vtexcommercebeta.com.br/api/rnb/pvt/archive/coupon/'. $couponId .'/';
     $ch = curl_init($url);
-    $ID = "vtexappkey-appvtex";
-    $Key = "QOLGVNXYIALKLOFANGJQOYTJEPQQGDSNDQCHQKIUXUWQYSWCSIHXYCJRUCCGXGRFIYHULYJCYOTTBCKMSNYYVUOAGLMNIBXRCRIAKCRUYFZJJPPRRPOKITJOJGNALVUW";
+    $ID = $_POST['key'];
+    $Key = $_POST['token'];
     $headers= array('Content-Type: application/json','X-VTEX-API-AppKey:'.$ID.'', 'X-VTEX-API-AppToken:'.$Key);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -78,6 +78,6 @@ foreach ($coupons as $value) {
         $i++;$a++;
     }
 }
-
+sleep(1);
 echo "</br><font size=6><b>AccountName: ".$accountName."</br><font color=green size=6><b>Total não arquivados: " . $n . "</font>" . " </br><font color=red size=6><b>Total arquivados: " . $a. "</font>";
 ?>
