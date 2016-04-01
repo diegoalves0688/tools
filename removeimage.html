@@ -1,0 +1,45 @@
+
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <title>MassImageRemove</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Orbitron);
+        @import url(http://fonts.googleapis.com/css?family=Roboto);
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+        }
+        .formulario {
+            font-family: Roboto, sans-serif;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <table width=400><tr><td>
+        <div class="formulario"><div class="conteudo">
+
+            <h2 style="padding-top:20px;">MassImageRemove</h2>
+
+            <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post" action="removeImage.php">
+
+                <div class="nome_campo" >AccountName:</div><input id="accountname" name="accountname" type="text" value=""/></br>
+                <div class="nome_campo" >soap user: </div><input id="user" name="user" type="text" value=""/></br>
+                <div class="nome_campo" >soap password: </div><input id="password" name="password" type="text" value=""/></br>
+                <div class="nome_campo" >skus (one per line):</div>
+                <textarea rows="4" cols="50" name="skus" id="skus"></textarea></br></br>
+                <input id="send" type="submit" value="Remove!"/>
+
+            </form>
+        </div>
+        </div>
+    </td></tr></table></center>
+<style>
+    body {background-color:lightblue;}
+    .nome_campo{padding-top: 10px;   border-radius: 5px;}
+    .formulario {background-color:white;border-radius:10px;}
+    .conteudo {padding-left:20px;padding-bottom:20px;padding-top:10px;padding-right:20px;}
+</style>
